@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Visiting Card - ADGC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #0e2b54;
+      line-height: 1.6;
+    }
+    
+    .banner {
+      position: relative;
+      height: 400px;
+      background: url('images/backgroundimage.jpeg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      color: white;
+      padding: 30px 20px;
+    }
+    
+    .banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(58, 91, 137, 0.4);
+      z-index: 0;
+    }
+    
+    .top-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+    }
+    
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    
+    .logo-row img {
+      width: 50px;
+      height: auto;
+      flex-shrink: 0;
+    }
+    
+    .company-name {
+      font-weight: 500;
+      font-size: 26px;
+      margin: 0;
+      line-height: 1.2;
+      text-align: center;
+    }
+    
+    .slogan-text {
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.3;
+      margin-top: 70px;
+      text-align: center;
+      max-width: 100%;
+    }
+    
+    .header-right {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .header-right .tagline {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.3;
+      max-width: 100%;
+    }
+    
+    .banner * {
+      color: white;
+    }
+    
+    /* Founder section styles - Updated */
+    .founder-section {
+      background: white;
+      padding: 50px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .founder-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      z-index: 0;
+    }
+    
+    .founder-container {
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .founder-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #395b89;
+      margin: 0 auto 20px;
+      display: block;
+      object-fit: cover;
+      box-shadow: 0 8px 25px rgba(57, 91, 137, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .founder-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 35px rgba(57, 91, 137, 0.3);
+    }
+    
+    .founder-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #395b89;
+      margin: 0 0 8px 0;
+      letter-spacing: 0.5px;
+    }
+    
+    .founder-title {
+      font-size: 16px;
+      color: #666;
+      margin: 0 0 15px 0;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .founder-description {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      max-width: 400px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+    
+    .white-box {
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px 20px;
+      margin: 10px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      max-width: 1000px;
+      width: 100%;
+    }
+    
+    header, section, footer {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .contact, .qr-section, .form-section {
+      background-color: #f5f8fd;
+      padding: 30px 20px;
+    }
+    
+    .section-label {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #395b89;
+      text-align: center;
+      position: relative;
+      margin-bottom: 30px;
+      display: inline-block;
+    }
+    
+    .section-label::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: #395b89;
+      margin: 8px auto 0;
+      border-radius: 3px;
+    }
+    
+    .btn {
+      background-color: #395b89;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      display: inline-block;
+      font-weight: bold;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      text-decoration: none;
+      border: none;
+      min-height: 44px;
+    }
+    
+    .btn:hover {
+      background-color: #2e4a72;
+      transform: scale(1.03);
+    }
+    
+    .label-btn {
+      cursor: default;
+      border: none;
+      pointer-events: none;
+    }
+    
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .column {
+      width: 100%;
+    }
+    
+    .service-item {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .service-item .white-box {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 120px;
+      padding: 20px;
+    }
+    
+    .services {
+      padding: 30px 20px;
+      background-color: #f5f8fd;
+    }
+    
+    .service-item {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      padding: 0;
+    }
+    
+    .heading-with-icon {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .heading-with-icon h4 {
+      margin: 0;
+      font-size: 18px;
+      color: #0f2b54;
+      line-height: 1.3;
+    }
+    
+    .service-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    
+    .service-item p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #666;
+    }
+    
+    .contact .label-btn {
+      margin-bottom: 30px;
+    }
+    
+    .contact-info {
+      background-color: #0e2b54;
+      color: white;
+      padding: 25px 20px;
+      border-radius: 12px;
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .wide-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .contact-intro {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .contact-intro p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: white;
+      margin: 0;
+    }
+    
+    .contact-main {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .left-contact {
+      text-align: center;
+      padding: 15px 0;
+    }
+    
+    .left-contact h3 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    
+    .right-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .contact-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 10px 0;
+    }
+    
+    .contact-line img {
+      width: 24px;
+      height: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    
+    .contact-label {
+      margin-bottom: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.7);
+    }
+    
+    .contact-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      word-break: break-word;
+    }
+    
+    .qr-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 20px 20px;
+      position: relative;
+    }
+    
+    .qr-section .label-btn {
+      margin-bottom: 40px;
+    }
+    
+    .qr-container {
+      position: relative;
+      max-width: 320px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    .qr-section .white-box {
+      max-width: 280px;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    
+    .qr-section .white-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(57, 91, 137, 0.1) 50%, transparent 70%);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    .qr-section img {
+      width: 180px;
+      height: 180px;
+      max-width: 100%;
+      border-radius: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .scan-instruction {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #395b89 0%, #2a4a72 100%);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(57, 91, 137, 0.3);
+      z-index: 3;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.05); }
+    }
+    
+    .scan-corners {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      pointer-events: none;
+      z-index: 3;
+    }
+    
+    .scan-corner {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border: 3px solid #395b89;
+      animation: scanCorners 2s ease-in-out infinite;
+    }
+    
+    .scan-corner.top-left {
+      top: 0;
+      left: 0;
+      border-right: none;
+      border-bottom: none;
+      border-radius: 8px 0 0 0;
+    }
+    
+    .scan-corner.top-right {
+      top: 0;
+      right: 0;
+      border-left: none;
+      border-bottom: none;
+      border-radius: 0 8px 0 0;
+    }
+    
+    .scan-corner.bottom-left {
+      bottom: 0;
+      left: 0;
+      border-right: none;
+      border-top: none;
+      border-radius: 0 0 0 8px;
+    }
+    
+    .scan-corner.bottom-right {
+      bottom: 0;
+      right: 0;
+      border-left: none;
+      border-top: none;
+      border-radius: 0 0 8px 0;
+    }
+    
+    @keyframes scanCorners {
+      0%, 100% { 
+        opacity: 0.7;
+        transform: scale(1);
+      }
+      50% { 
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+    
+    .scanning-line {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #395b89, transparent);
+      animation: scanLine 2s ease-in-out infinite;
+      z-index: 3;
+    }
+    
+    @keyframes scanLine {
+      0% { 
+        transform: translateY(0);
+        opacity: 0;
+      }
+      10% { 
+        opacity: 1;
+      }
+      90% { 
+        opacity: 1;
+      }
+      100% { 
+        transform: translateY(200px);
+        opacity: 0;
+      }
+    }
+    
+    .scan-text {
+      margin-top: 20px;
+      text-align: center;
+      color: #395b89;
+      font-weight: 600;
+      font-size: 16px;
+      animation: fadeInOut 3s ease-in-out infinite;
+    }
+    
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+    
+    .phone-icon {
+      display: inline-block;
+      margin-right: 8px;
+      animation: phoneWiggle 2s ease-in-out infinite;
+    }
+    
+    @keyframes phoneWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+    }
+     
+    form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+    }
+    
+    .form-section .label-btn {
+      margin-bottom: 30px;
+    }
+    .form-section {
+      padding: 10px 20px 30px 20px;
+    }
+    .form-section .white-box {
+      padding: 30px 20px;
+    }
+    
+    .form-section a {
+      color: #395b89;
+      font-weight: bold;
+      text-decoration: underline;
+      word-break: break-word;
+    }
+    .form-section a.btn {
+      color: white;
+      text-decoration: none;
+  }
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: inherit;
+      resize: vertical;
+      font-size: 16px;
+      min-height: 44px;
+    }
+    
+    .map-container {
+      width: 100%;
+      max-width: 1000px;
+      height: 250px;
+      margin: auto;
+      padding: 0 20px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Tablet styles */
+    @media (min-width: 768px) {
+      .banner {
+        height: 450px;
+        padding: 40px 30px;
+      }
+      
+      .top-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      
+      .header-left {
+        flex: 1;
+      }
+      
+      .logo-row {
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+      }
+      
+      .logo-row img {
+        width: 60px;
+      }
+      
+      .company-name {
+        font-size: 22px;
+        text-align: left;
+        width: auto;
+        margin-top: 0;
+      }
+      
+      .slogan-text {
+        font-size: 32px;
+        margin-top: 25px;
+        margin-left: 20px;
+        text-align: left;
+      }
+      
+      .header-right {
+        flex-shrink: 0;
+        margin-top: 10px;
+        text-align: right;
+        width: auto;
+      }
+      
+      .header-right .tagline {
+        font-size: 14px;
+      }
+      
+      .founder-section {
+        padding: 60px 30px;
+      }
+      
+      .founder-image {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .founder-name {
+        font-size: 32px;
+      }
+      
+      .founder-title {
+        font-size: 18px;
+      }
+      
+      .two-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      
+      .services {
+        padding: 40px 30px;
+      }
+      
+      .contact, .form-section {
+        padding: 40px 30px;
+      }
+      .qr-section {
+        padding: 40px 30px 20px 30px;
+      }
+      
+      .form-section {
+        padding: 20px 30px 40px 30px;
+      }
+      .contact-main {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      
+      .left-contact {
+        flex: 1;
+        text-align: left;
+        padding-top: 80px;
+        padding-left: 100px;
+      }
+      
+      .right-contact {
+        flex: 1;
+        gap: 25px;
+      }
+      
+      .contact-info {
+        padding: 35px 30px;
+      }
+      
+      .map-container {
+        height: 300px;
+      }
+    }
+    
+    /* Desktop styles */
+    @media (min-width: 1024px) {
+      .banner {
+        height: 400px;
+        padding: 30px 40px;
+      }
+      
+      .logo-row img {
+        width: 70px;
+      }
+      
+      .company-name {
+        font-size: 26px;
+      }
+      
+      .slogan-text {
+        font-size: 38px;
+        margin-top: 40px;
+        margin-left: 40px;
+        max-width: 500px;
+      }
+      
+      .header-right {
+        margin-right: 20px;
+      }
+      
+      .header-right .tagline {
+        font-size: 16px;
+      }
+      
+      .founder-section {
+        padding: 70px 50px;
+      }
+      
+      .founder-image {
+        width: 160px;
+        height: 160px;
+      }
+      
+      .services {
+        padding: 30px 60px;
+      }
+      
+      .contact, .form-section {
+        padding: 30px 50px;
+      }
+      .qr-section {
+        padding: 30px 50px 15px 50px;
+      }
+      
+      .form-section {
+        padding: 15px 50px 30px 50px;
+      }
+      .contact-main {
+        gap: 40px;
+      }
+      
+      .left-contact {
+        justify-content: center;
+        text-align: center;
+        padding-top: 80px;
+      }
+      
+      .right-contact {
+        gap: 30px;
+        padding-right: 10px;
+      }
+      
+      .contact-info {
+        padding: 30px;
+      }
+      
+      .section-label {
+        font-size: 16px;
+        letter-spacing: 4px;
+        margin-bottom: 40px;
+      }
+      
+      .qr-section {
+        padding: 40px 20px;
+      }
+      
+      .qr-section .label-btn {
+        margin-bottom: 40px;
+      }
+      
+      .qr-section img {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .form-section .label-btn {
+        margin-bottom: 50px;
+      }
+    }
+    
+    /* Large desktop styles */
+    @media (min-width: 1200px) {
+      .logo-row img {
+        width: 80px;
+      }
+      
+      .company-name {
+        font-size: 30px;
+      }
+      
+      .slogan-text {
+        font-size: 45px;
+        margin-top: 60px;
+        margin-left: 80px;
+      }
+      
+      .header-right {
+        margin-right: 60px;
+      }
+      
+      .header-right .tagline {
+        font-size: 18px;
+      }
+      
+      .founder-section {
+        padding: 80px 80px;
+      }
+      
+      .services {
+        padding: 30px 80px;
+      }
+      
+      .contact, .form-section {
+        padding: 30px 60px;
+      }
+      .qr-section {
+        padding: 30px 60px 15px 60px;
+      }
+      
+      .form-section {
+        padding: 15px 60px 30px 60px;
+      }
+      
+      .contact-main {
+        gap: 50px;
+      }
+      
+      .left-contact {
+        padding-top: 80px;
+        padding-left: 100px;
+      }
+      
+      .two-columns {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    /* Touch-friendly improvements */
+    @media (hover: none) and (pointer: coarse) {
+      .btn {
+        min-height: 48px;
+        padding: 14px 24px;
+      }
+      
+      input, textarea {
+        min-height: 48px;
+        padding: 14px;
+      }
+      
+      .contact-line {
+        padding: 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="banner">
+    <div class="top-bar">
+      <div class="header-left">
+        <div class="logo-row">
+          <img src="images/ADGC_Logo.png" alt="ADGC Logo">
+          <div class="company-name">A.D. Global Consultancy</div>
+        </div>
+        <div class="slogan-text">
+          Empowering Growth,<br>Building Future
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="tagline">Expert Financial Planning Services</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="founder-section">
+    <div class="founder-container">
+      <img src="images/Founder.JPG" alt="Founder" class="founder-image">
+      <h2 class="founder-name">Parth Giri</h2>
+      <p class="founder-title">Founder & CEO</p>
+      <p class="founder-description">Leading financial excellence with strategic insights and comprehensive advisory services</p>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="section-label">OUR SERVICES</div>
+    <div class="two-columns">
+      <div class="column">
+        <div class="service-item">
+          <div class="white-box">
+            <div class="heading-with-icon">
+              <img src="https://adglobalconsultancy.com/wp-content/uploads/2025/01/icon-01.png" alt="Fund Icon" class="service-icon">
+              <h4>Fund Raising</h4>
+            </div>
+            <p>Structured and innovative financing solutions</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="service-item">
+          <div class="white-box">
+            <div class="heading-with-icon">
+              <img src="https://adglobalconsultancy.com/wp-content/uploads/2025/01/icon02.png" alt="Banking Icon" class="service-icon">
+              <h4>Investment Banking</h4>
+            </div>
+            <p>Expertise in deal structuring and capital markets</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="service-item">
+          <div class="white-box">
+            <div class="heading-with-icon">
+              <img src="https://adglobalconsultancy.com/wp-content/uploads/2025/01/icon03.png" alt="Merger Icon" class="service-icon">
+              <h4>Merger & Acquisition</h4>
+            </div>
+            <p>Driving synergy through strategic partnerships</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="service-item">
+          <div class="white-box">
+            <div class="heading-with-icon">
+              <img src="https://adglobalconsultancy.com/wp-content/uploads/2025/01/icon04.png" alt="Modeling Icon" class="service-icon">
+              <h4>Financial Modelling</h4>
+            </div>
+            <p>Data-driven insights for decision-making</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="service-item">
+          <div class="white-box">
+            <div class="heading-with-icon">
+              <img src="images/icon.png" alt="Analytics Icon" class="service-icon">
+              <h4>Financial Analytics</h4>
+            </div>
+            <p>Data analysis to gain insights into the financial performance</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="service-item">
+          <div class="white-box">
+            <div class="heading-with-icon">
+              <img src="https://adglobalconsultancy.com/wp-content/uploads/2025/01/icon06.png" alt="Valuation Icon" class="service-icon">
+              <h4>Enterprise Valuation</h4>
+            </div>
+            <p>Simplifying processes for efficiency</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="section-label">CONTACT US</div>
+    <div class="contact-info">
+      <div class="wide-contact">
+        <div class="contact-intro">
+          <p>Ready to transform your financial future? Get in touch with our experts today.</p>
+        </div>
+        <div class="contact-main">
+          <div class="left-contact">
+            <h3>Let's Connect.</h3>
+          </div>
+          <div class="right-contact">
+            <div class="contact-line">
+              <img src="images/mail.png" alt="Email Icon">
+              <div class="text-block">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">parth@adglobalconsultancy.com</div>
+              </div>
+            </div>
+            <div class="contact-line">
+              <img src="images/phone.png" alt="Phone Icon">
+              <div class="text-block">
+                <div class="contact-label">Phone</div>
+                <div class="contact-value">+91 90074 35985</div>
+              </div>
+            </div>
+            <div class="contact-line">
+              <img src="images/address.png" alt="Address Icon">
+              <div class="text-block">
+                <div class="contact-label">Address</div>
+                <div class="contact-value">No.7, Hanumanthappa Layout, Essel Garden, Elu’s Road, Purvankara, Kothnur - 560077</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qr-section">
+    <div class="section-label">SCAN & CONNECT</div>
+    <div class="qr-container">
+      <div class="scan-instruction">
+        <span class="phone-icon">📱</span>
+        Scan Me!
+      </div>
+      <div class="white-box">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://www.adglobalconsultancy.com" alt="QR Code">
+        <div class="scan-corners">
+          <div class="scan-corner top-left"></div>
+          <div class="scan-corner top-right"></div>
+          <div class="scan-corner bottom-left"></div>
+          <div class="scan-corner bottom-right"></div>
+        </div>
+        <div class="scanning-line"></div>
+      </div>
+      <div class="scan-text">
+        Point your camera here to visit our website
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="section-label">INQUIRIES</div>
+    <div class="white-box">
+      <p style="text-align: center; font-size: 16px; margin-bottom: 25px; color: #395b89;">
+        Ready to discuss your financial goals? Schedule a consultation with our experts today.
+      </p>
+      <a href="https://adglobalconsultancy.com/contact-us/" class="btn" style="display: block; width: fit-content; margin: auto;">Book a Consultation</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d260.27741945815575!2d77.66942138446653!3d13.062063588146687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDAzJzQzLjciTiA3N8KwNDAnMDkuOCJF!5e0!3m2!1sen!2sin!4v1751957980134!5m2!1sen!2sin"></iframe>
+    </div>
+  </section>
+</body>
+</html>
